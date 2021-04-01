@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from frontend.models import almacen
 # Create your views here.
 
 # Create your views here.
@@ -11,8 +11,9 @@ def products(request):
     return render(request,"frontend/products.html")
 
 def store(request):
-    return render(request,"frontend/store.html")
+    almacenes=almacen.objects.all()
+    return render(request,"frontend/store.html", {"almacenes":almacenes})
+    #return render(request,"frontend/store.html")
 
 def about(request):
     return render(request,"frontend/about.html")
-    
